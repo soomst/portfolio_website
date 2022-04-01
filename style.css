@@ -94,14 +94,18 @@ button {
 
 /* Navbar */
 #navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-pink);
+  background-color: transparent;
   align-items: center;
   color: var(--color-white);
   padding: 16px;
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+  transition: all var(--animation-duration) ease;
 }
 
 .navbar__menu {
@@ -132,10 +136,16 @@ button {
   display: none;
 }
 
+#navbar.navbar--dark {
+  background-color: var(--color-pink);
+  padding: 8px;
+}
+
 /* Home */
 #home {
   background: url(./imgs/homebackground.png) center/cover no-repeat;
   padding: 40px;
+  padding-top: 138px;
   text-align: center;
 }
 
@@ -463,7 +473,7 @@ button {
 }
 
 /* For below 768px screen width */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 986px) {
   .navbar__toggle-btn {
     display: block;
   }
