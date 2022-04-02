@@ -75,7 +75,7 @@ navbarToggleBtn.addEventListener("click", () => {
 // Handle click on "contact me" button on home
 const contactBtn = document.querySelector(".home__contact");
 contactBtn.addEventListener("click", (e) => {
-  removeAddMenuItemClass("contact");
+  //removeAddMenuItemClass("contact");
 
   scrollIntoView("#contact");
 });

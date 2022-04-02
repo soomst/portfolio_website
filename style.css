@@ -90,6 +90,7 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+  padding: 0;
 }
 
 /* Navbar */
@@ -540,6 +541,11 @@ button {
 
   .project {
     flex-grow: 1;
+  }
+
+  .category__btn {
+    margin: 4px 0;
+    width: 100%;
   }
 
   .testimonial__avartar {
