@@ -106,6 +106,7 @@ button {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
   transition: all var(--animation-duration) ease;
+  z-index: 100;
 }
 
 .navbar__menu {
@@ -116,14 +117,12 @@ button {
   padding: 8px 12px;
   margin: 0 4px;
   cursor: pointer;
+  border: 1px solid transparent;
   border-radius: var(--size-border-radius);
 }
 
-.navbar__menu__item.active {
-  border: 1px solid var(--color-white);
-}
-
 .navbar__menu__item:hover {
+  border: 1px solid var(--color-white);
   background-color: var(--color-dark-pink);
 }
 
@@ -138,7 +137,6 @@ button {
 
 #navbar.navbar--dark {
   background-color: var(--color-pink);
-  padding: 8px;
 }
 
 /* Home */
@@ -310,13 +308,13 @@ button {
   padding: 8px 48px;
 }
 
-.category__btn.active,
+.category__btn.selected,
 .category__btn:hover {
   background-color: var(--color-pink);
   color: var(--color-white);
 }
 
-.category__btn.active .category__count,
+.category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
   top: 0;
@@ -341,6 +339,13 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  opacity: 1;
+  transition: all var(--animation-duration) ease-out;
+}
+
+.work__projects.anim-out {
+  opacity: 0;
+  transform: scale(0.98) translateY(20px);
 }
 
 .project {
@@ -352,6 +357,10 @@ button {
   height: 250px;
   margin: 2px;
   background-color: var(--color-light-white);
+}
+
+.project.invisible {
+  display: none;
 }
 
 .project:hover .project__description {
@@ -472,6 +481,28 @@ button {
   color: var(--color-light-white);
 }
 
+/* scroll */
+.arrow-up {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  border: 1px solid var(--color-white);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--animation-duration) ease-in;
+}
+
+.arrow-up.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* For below 768px screen width */
 @media screen and (max-width: 986px) {
   .navbar__toggle-btn {
@@ -481,6 +512,7 @@ button {
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    background-color: var(--color-pink);
   }
 
   .navbar__menu {
@@ -488,6 +520,10 @@ button {
     width: 100%;
     text-align: center;
     display: none;
+  }
+
+  .navbar__menu.open {
+    display: block;
   }
 
   .about__majors {
